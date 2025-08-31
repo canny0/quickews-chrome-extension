@@ -10,11 +10,11 @@ export default function checkUpdates() {
         const response = await fetch(
           "https://api.github.com/repos/canny0/quickews-chrome-extension/releases/latest"
         );
-        const { tag_name: latestVersion } = await response.json();
+        const { tag_name } = await response.json();
 
-        if (lastCheckForUpdatesVersion !== latestVersion) {
+        if (lastCheckForUpdatesVersion !== tag_name) {
           chrome.storage.local.set({
-            lastCheckForUpdatesVersion: latestVersion,
+            lastCheckForUpdatesVersion: tag_name,
           });
 
           chrome.notifications.create("", {

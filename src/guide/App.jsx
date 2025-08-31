@@ -1,8 +1,8 @@
 import renderApp from "../components/index";
-import HeaderFooter from "../components/HeaderFooter";
+import GuideSteps from "./GuideSteps";
 
 export default function App() {
-  return <HeaderFooter></HeaderFooter>;
+  return <GuideSteps />;
 }
 
 renderApp(App);

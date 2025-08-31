@@ -4,7 +4,7 @@ import Logo from "./Logo";
 import { FaGithub, FaReddit } from "react-icons/fa6";
 
 const links = [
-  // { href: "/guide/index.html", label: "Startup Guide" },
+  { href: "/guide/index.html", label: "Startup Guide" },
   { href: "https://quickews.pages.dev/rate-us/", label: "Rate Us" },
   { href: "https://quickews.pages.dev/feedback/", label: "Feedback" },
   { href: "https://quickews.pages.dev/", label: "Our Website" },

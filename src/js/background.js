@@ -62,5 +62,5 @@ chrome.runtime.onInstalled.addListener(async () => {
   const response = await fetch(url, { method: "POST" });
   console.log(response.status);
 
-  // chrome.tabs.create(chrome.runtime.getURL("guide/index.html"));
+  chrome.tabs.create({ url: chrome.runtime.getURL("guide/index.html") });
 });
