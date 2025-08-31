@@ -1,9 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
+import zipPack from "vite-plugin-zip-pack";
+import { name, version } from "./public/manifest.json";
 
-export default defineConfig({
-  plugins: [react()],
+export default defineConfig(({ mode }) => ({
+  plugins: [
+    react(),
+    mode === "zip-build" &&
+      zipPack({
+        outFileName: `${name.toLowerCase()}-v${version}.zip`,
+      }),
+  ],
   define: {
     __API_URL__: JSON.stringify("https://api-quickews.canny0.workers.dev"),
   },
@@ -26,4 +34,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

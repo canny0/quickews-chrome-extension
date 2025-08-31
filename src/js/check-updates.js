@@ -8,7 +8,7 @@ export default function checkUpdates() {
         chrome.storage.local.set({ lastCheckForUpdates: now });
 
         const response = await fetch(
-          "https://api.github.com/repos/canny0/quickews/releases/latest"
+          "https://api.github.com/repos/canny0/quickews-chrome-extension/releases/latest"
         );
         const { tag_name: latestVersion } = await response.json();
 

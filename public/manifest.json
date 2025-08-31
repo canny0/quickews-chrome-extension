@@ -23,7 +23,7 @@
   "permissions": ["tabs", "alarms", "contextMenus", "storage", "commands", "notifications"],
   "host_permissions": [
     "https://api-quickews.canny0.workers.dev/*",
-    "https://api.github.com/repos/canny0/quickews/releases/latest"
+    "https://api.github.com/repos/canny0/quickews-chrome-extension/releases/latest"
   ],
   "background": {
     "service_worker": "background.js",
