@@ -1,0 +1,14 @@
+:root {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+}
+
+[data-mantine-color-scheme="light"]:root {
+  --mantine-color-body: #fcfcfc;
+  --mantine-color-white: #fcfcfc;
+  --mantine-color-black: #1f1f1f;
+}
+
+[data-mantine-color-scheme="dark"]:root {
+  /* --mantine-color-dark-7: #666; */
+  --mantine-color-white: #f2f2f2;
+}

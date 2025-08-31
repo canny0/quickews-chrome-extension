@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json.schemastore.org/chrome-manifest.json",
+  "manifest_version": 3,
+  "name": "QuickEWS",
+  "version": "1.0.0",
+  "description": "",
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png",
+    "256": "logo.png"
+  },
+  "action": {
+    "default_title": "QuickEWS",
+    "default_icon": {
+      "16": "logo.png",
+      "24": "logo.png",
+      "32": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    }
+  },
+  "permissions": ["tabs", "alarms", "contextMenus", "storage", "commands", "notifications"],
+  "host_permissions": [
+    "https://api-quickews.canny0.workers.dev/*",
+    "https://api.github.com/repos/canny0/quickews/releases/latest"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "dashboard/index.html",
+
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Q" }
+    },
+    "favourite-last-search": {
+      "suggested_key": { "default": "Alt+S" },
+      "description": "Mark the last search as favourite"
+    }
+  }
+}
