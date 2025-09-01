@@ -47,20 +47,22 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
   }
 });
 
-chrome.runtime.onInstalled.addListener(async () => {
-  chrome.storage.local.set({
-    tabTarget: "newTab",
-    historyEnabled: JSON.stringify(true),
-    checkForUpdates: JSON.stringify(false),
-    lastCheckForUpdatesVersion: version,
-    lastCheckForUpdates: new Date().toISOString().slice(0, 7),
-  });
+chrome.runtime.onInstalled.addListener(async (details) => {
+  if (details.reason === "install") {
+    chrome.storage.local.set({
+      tabTarget: "newTab",
+      historyEnabled: JSON.stringify(true),
+      checkForUpdates: JSON.stringify(false),
+      lastCheckForUpdatesVersion: version,
+      lastCheckForUpdates: new Date().toISOString().slice(0, 7),
+    });
 
-  const url = new URL(__API_URL__);
-  url.pathname = "/v1/installs";
+    const url = new URL(__API_URL__);
+    url.pathname = "/v1/installs";
 
-  const response = await fetch(url, { method: "POST" });
-  console.log(response.status);
+    const response = await fetch(url, { method: "POST" });
+    console.log(response.status);
 
-  chrome.tabs.create({ url: chrome.runtime.getURL("guide/index.html") });
+    chrome.tabs.create({ url: chrome.runtime.getURL("guide/index.html") });
+  }
 });
